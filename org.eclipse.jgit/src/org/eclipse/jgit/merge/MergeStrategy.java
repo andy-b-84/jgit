@@ -80,6 +80,11 @@ public abstract class MergeStrategy {
 	 */
 	public static final ThreeWayMergeStrategy RECURSIVE = new StrategyRecursive();
 
+    /**
+     * Like a git rebase --strategy=recursive --strategy-option=theirs parentBranch
+     */
+    public static final ThreeWayMergeStrategy RECURSIVE_THEIRS = new StrategyRecursiveTheirs();
+
 	private static final HashMap<String, MergeStrategy> STRATEGIES = new HashMap<String, MergeStrategy>();
 
 	static {
@@ -88,6 +93,7 @@ public abstract class MergeStrategy {
 		register(SIMPLE_TWO_WAY_IN_CORE);
 		register(RESOLVE);
 		register(RECURSIVE);
+        register(RECURSIVE_THEIRS);
 	}
 
 	/**
